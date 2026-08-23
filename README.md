@@ -4,6 +4,11 @@
 
 A catalog enrichment engine that turns a sparse SKU row into commerce-ready product data, **and refuses to guess when it cannot find a source.**
 
+**Browse a real run: [sourced-peach.vercel.app](https://sourced-peach.vercel.app)** — 656 enriched
+records with their provenance. Click any published value and the exact cell it was
+read from is outlined on the source page. Filter to *no source located* to see the
+93 records that returned an explained refusal instead of a guess.
+
 ---
 
 ## The problem, stated precisely
@@ -76,6 +81,19 @@ python -m sourced.eval.report --persist --fresh   # evaluate, write RESULTS.md, 
 uvicorn sourced.api.routes:app --reload    # http://127.0.0.1:8000
 pytest                                     # the gates
 ```
+
+### The hosted snapshot
+
+The live link above is a static export of a completed run, not the pipeline itself —
+scikit-learn, pdfplumber and a retrieval index built over every source document at
+start-up do not fit in a serverless function, and a page that loaded and then failed
+would be worse than an honest one. Rebuild it with:
+
+```bash
+python -m sourced.export_static --out dist   # 656 records, 98 page images, ~23 MB
+```
+
+Enriching a *new* part number is the local path, above.
 
 Or the whole stack on Postgres:
 

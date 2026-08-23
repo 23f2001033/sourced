@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sourced — Product Intelligence for Industrial Commerce</title>
+<meta name="description" content="Turns a sparse SKU row into a commerce-ready record with the document, page and region every value came from — and refuses to guess when it cannot verify a source.">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <strong>Sourced</strong>
+    <span class="sub">product intelligence for industrial commerce</span>
+  </div>
+  <div class="head-actions">
+    <input id="filter" type="search" placeholder="Filter by MPN or manufacturer">
+    <select id="status-filter">
+      <option value="">all records</option>
+      <option value="verified">source verified</option>
+      <option value="not_located">no source located</option>
+    </select>
+    <a class="ghlink" href="https://github.com/23f2001033/sourced" target="_blank"
+       rel="noopener">GitHub</a>
+  </div>
+</header>
+
+<div id="statbar"></div>
+
+<div id="notice">
+  <strong>This is a snapshot of a real pipeline run</strong>, served as static
+  files: 656 enriched records with their provenance, and the source pages they
+  were read from. Clicking any published value outlines the exact region it came
+  from. Live enrichment of a new part number runs locally —
+  <code>docker compose up</code> — because the pipeline carries a retrieval index
+  and a PDF stack that a serverless host cannot hold.
+  <button id="notice-close" aria-label="Dismiss">×</button>
+</div>
+
+<main>
+  <aside id="list-pane">
+    <div class="pane-head">
+      <span id="list-count">loading…</span>
+    </div>
+    <ul id="product-list"></ul>
+  </aside>
+
+  <section id="detail-pane">
+    <div id="empty" class="empty">Select a SKU to see its record, its provenance,
+      and the reason behind every abstention.</div>
+    <article id="detail" hidden></article>
+  </section>
+
+  <aside id="source-pane">
+    <div class="pane-head"><span>Source</span></div>
+    <div id="source-body" class="empty small">Click any value to see the document,
+      page and region it was read from.</div>
+  </aside>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

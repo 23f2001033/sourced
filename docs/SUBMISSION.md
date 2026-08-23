@@ -421,7 +421,7 @@ the whole system in six acts.
 
 1. **GitHub public repository:** https://github.com/23f2001033/sourced
 2. **Demo video (3 min):** _(fill in)_
-3. **Working prototype:** `docker compose up` → http://localhost:8000 — or the deployed URL
+3. **Working prototype:** live at https://sourced-peach.vercel.app (a snapshot of a real run, with the cited region drawn on every value) — and `docker compose up` → http://localhost:8000 for live enrichment of a new part number
 
 ---
 

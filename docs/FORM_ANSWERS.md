@@ -33,23 +33,33 @@ Where it cannot answer, it says why - and that is the point.
 
 ## 2. Share the link to your live prototype demonstrating the core functionality.
 
-**You do not have a deployed URL yet.** The prototype runs locally in one
-command, but this field wants a link. Two options:
-
-- **Deploy it** (recommended if you have 30 minutes) — Render, Railway or Fly
-  all accept the existing `Dockerfile`. Postgres is optional; `SOURCED_DB_URL`
-  defaults to SQLite, so a single web service works.
-- **Point at the repo's run instructions** if a URL is not required to be live:
-
 ```
-https://github.com/23f2001033/sourced#running-it
-(one command: docker compose up  ->  http://localhost:8000)
+https://sourced-peach.vercel.app
 ```
 
-Check whether the form validates this as a URL before relying on the second
-option.
+Live and public — no login, no cold start. It serves a **snapshot of a real
+pipeline run**: 656 enriched records with their full provenance, and the source
+pages they were read from. Click any published value and the exact cell it came
+from is outlined on the rendered PDF. 380 records have a page-level citation to
+outline; the rest cite structured listing rows, which have no geometry to draw.
 
----
+Two things a reviewer should try, in order:
+
+1. The record it opens on — click through the attributes and watch the outlined
+   region move around the datasheet page.
+2. Set the filter to **no source located** — 93 records that returned an
+   explained refusal instead of a guess. That is the thesis of the project.
+
+What the hosted page deliberately does not do is enrich a *new* part number: the
+pipeline carries scikit-learn, pdfplumber and a retrieval index built over every
+source document at start-up, which no serverless function can hold. That path
+runs locally in one command and is what the demo video shows:
+
+```
+docker compose up   ->   http://localhost:8000
+```
+
+The page says this plainly rather than implying otherwise.
 
 ## 3. Share the GitHub Repository link
 

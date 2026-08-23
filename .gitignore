@@ -20,3 +20,7 @@ data/*.log
 #   data/results.json + docs/figures/  the measured run RESULTS.md cites
 #   data/llm_experiment.json           the extraction A/B RESULTS.md cites
 #   data/description_experiment.json   the R8 audit RESULTS.md cites
+
+# static export target for the hosted snapshot (rebuild with
+# python -m sourced.export_static --out dist)
+dist/

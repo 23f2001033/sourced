@@ -806,7 +806,7 @@ def slide_features(c, n):
          MARGIN + 12, band_y + 26, 646, 8.2, 10.2, fill=MUTED)
 
     note(c, "Full feature list and evidence: docs/RESULTS.md  |  "
-            "Run it: docker compose up  ->  http://localhost:8000", 22)
+            "Live: sourced-peach.vercel.app  |  Local: docker compose up", 22)
 
 
 def slide_flow(c, n):
@@ -969,7 +969,7 @@ def slide_wireframe(c, n):
     c.drawString(sx + 96, top + 30, "the cited cell, outlined")
 
     note(c, "Screenshots of the running application are on the next slide. "
-            "Live at http://localhost:8000 after docker compose up.")
+            "Browse a real run at sourced-peach.vercel.app; run it live with docker compose up.")
 
 
 def slide_architecture(c, n):
@@ -1208,9 +1208,9 @@ def slide_future(c, n):
 def slide_links(c, n):
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 9)
-    c.drawString(320, 267, "github.com/<your-handle>/sourced")
+    c.drawString(320, 267, "github.com/23f2001033/sourced")
     c.drawString(320, 245, "<paste the 3-minute video link>")
-    c.drawString(320, 223, "docker compose up  ->  http://localhost:8000")
+    c.drawString(320, 223, "sourced-peach.vercel.app")
 
     y = 168
     c.setFillColor(NAVY)
