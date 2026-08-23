@@ -1,0 +1,73 @@
+{
+  "provider": "api.featherless.ai:mistralai/Mistral-Nemo-Instruct-2407",
+  "model": "mistralai/Mistral-Nemo-Instruct-2407",
+  "sample": {
+    "requested": 20,
+    "descriptions_audited": 20,
+    "split": "test (held out)"
+  },
+  "generated": {
+    "descriptions": 20,
+    "mean_characters": 246.2,
+    "mean_claims": 4.3,
+    "descriptions_with_an_unlicensed_number": 0,
+    "unlicensed_number_rate": 0.0,
+    "total_unlicensed_numbers": 0,
+    "claims_left_untraceable": 0,
+    "claims_citing_an_unpublished_key": 0,
+    "all_claim_spans_align": true
+  },
+  "composed_control": {
+    "descriptions": 20,
+    "mean_characters": 281.2,
+    "mean_claims": 9.4,
+    "descriptions_with_an_unlicensed_number": 0,
+    "unlicensed_number_rate": 0.0,
+    "total_unlicensed_numbers": 0,
+    "claims_left_untraceable": 0,
+    "claims_citing_an_unpublished_key": 0,
+    "all_claim_spans_align": true
+  },
+  "generation_failures_falling_back_to_composed": 6,
+  "cost": {
+    "llm_calls": 20,
+    "llm_prompt_tokens": 3776,
+    "llm_completion_tokens": 1356,
+    "llm_cached_tokens": 0,
+    "llm_seconds": 121.621,
+    "llm_retries": 0,
+    "llm_failures": 0,
+    "llm_unparsed_responses": 0,
+    "wall_seconds": 184.1,
+    "seconds_per_description": 9.21
+  },
+  "examples": [
+    {
+      "mpn": "B400-TH209X125",
+      "category": "pipe_fitting",
+      "published_attributes": 12,
+      "generated": "The B400-TH209X125 is a 4\" inch bushing with a 1-1/4\" inch secondary size, featuring Butt-Weld ends on both sides. Crafted from Ductile Iron, it is rated for Class 150 service with a maximum working pressure of 240 psi and a temperature rating of 500\u00b0F. This Schedule 80 fitting is polished and complies with non-RoHS standards.",
+      "composed": "This part B400-TH209X125 is a pipe fitting \u2014 threaded and socket. It is 4\", reducing to 1-1/4\" and a Bushing. It uses a Butt-Weld inlet, a Butt-Weld outlet, a Ductile Iron body and Schedule 80 wall. It is rated Class 150, 240 psi cold working pressure and a maximum of 500 degF. It carries a Polished finish.",
+      "unlicensed_numbers": [],
+      "generator": "llm:mistralai/Mistral-Nemo-Instruct-2407"
+    },
+    {
+      "mpn": "SC8022T-038",
+      "category": "pipe_fitting",
+      "published_attributes": 8,
+      "generated": "**SC8022T-038**: 3/8\" inch Tee pipe fitting, featuring Flanged ends on both sides, crafted from 316 Stainless Steel, rated for Class 150 pressure, and has a Schedule 40 wall thickness, finished with a Chrome Plated coating.",
+      "composed": "Smith-Cooper SC8022T-038 is a pipe fitting \u2014 threaded and socket. It is 3/8\" and a Tee. It uses a Flanged inlet, a Flanged outlet, a 316 Stainless Steel body and Schedule 40 wall. It is rated Class 150. It carries a Chrome Plated finish.",
+      "unlicensed_numbers": [],
+      "generator": "llm:mistralai/Mistral-Nemo-Instruct-2407"
+    },
+    {
+      "mpn": "SC3012X-125",
+      "category": "pipe_fitting",
+      "published_attributes": 7,
+      "generated": "The SC3012X-125 is a 1-1/4\" inch cross pipe fitting, constructed from 304 Stainless Steel, with Socket-Weld connections on both ends. It is rated for Class 150 pressure and features a polished finish.",
+      "composed": "Smith-Cooper SC3012X-125 is a pipe fitting \u2014 threaded and socket. It is 1-1/4\" and a Cross. It uses a Socket-Weld inlet, a Socket-Weld outlet and a 304 Stainless Steel body. It is rated Class 150. It carries a Polished finish.",
+      "unlicensed_numbers": [],
+      "generator": "llm:mistralai/Mistral-Nemo-Instruct-2407"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: sourced
+      POSTGRES_PASSWORD: sourced
+      POSTGRES_DB: sourced
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./migrations/001_init.sql:/docker-entrypoint-initdb.d/001_init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sourced"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  # Generates the corpus, runs the evaluation, writes docs/RESULTS.md and loads
+  # the catalogue into Postgres. Runs once, then exits.
+  enrich:
+    build: .
+    depends_on:
+      db: {condition: service_healthy}
+    environment:
+      SOURCED_DB_URL: postgresql+psycopg://sourced:sourced@db:5432/sourced
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      FEATHERLESS_API_KEY: ${FEATHERLESS_API_KEY:-}
+      SOURCED_LLM_PROVIDER: ${SOURCED_LLM_PROVIDER:-}
+    volumes:
+      - ./data:/app/data
+      - ./docs:/app/docs
+    command: python -m sourced.eval.report --persist
+
+  api:
+    build: .
+    depends_on:
+      db: {condition: service_healthy}
+      enrich: {condition: service_completed_successfully}
+    environment:
+      SOURCED_DB_URL: postgresql+psycopg://sourced:sourced@db:5432/sourced
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      FEATHERLESS_API_KEY: ${FEATHERLESS_API_KEY:-}
+      SOURCED_LLM_PROVIDER: ${SOURCED_LLM_PROVIDER:-}
+    ports: ["8000:8000"]
+    volumes:
+      - ./data:/app/data
+      - ./docs:/app/docs
+
+volumes:
+  pgdata:

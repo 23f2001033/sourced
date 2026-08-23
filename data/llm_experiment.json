@@ -1,0 +1,366 @@
+{
+  "provider": "api.featherless.ai:mistralai/Mistral-Nemo-Instruct-2407",
+  "model": "mistralai/Mistral-Nemo-Instruct-2407",
+  "self_consistency_n": 1,
+  "sample": {
+    "requested": 40,
+    "skus_run": 40,
+    "by_category": {
+      "electrical_connector": 22,
+      "pipe_fitting": 18
+    },
+    "split": "test (held out)"
+  },
+  "contribution": {
+    "attributes_added": 5,
+    "attributes_added_per_sku": 0.125,
+    "skus_unchanged_by_the_tier": 35,
+    "added_and_published": 5,
+    "precision_of_added_values": 1.0,
+    "precision_of_added_published_values": 1.0,
+    "added_by_key": {
+      "rohs_compliant": 3,
+      "nominal_size_secondary": 2
+    },
+    "wrong_values": []
+  },
+  "gates": {
+    "skus_calling_the_model": 36,
+    "attributes_requested": 87,
+    "proposals_returned": 44,
+    "accepted": 20,
+    "rejected_span_not_in_chunk": 17,
+    "rejected_chunk_id_unknown": 7,
+    "rejected_self_consistency_split": 0,
+    "rejected_span_did_not_support_value": 15,
+    "span_rejection_rate": 0.3864,
+    "total_rejection_rate": 0.8864
+  },
+  "gates_removed": {
+    "note": "the same SKUs with span containment and the value/span pairing check disabled, so the model's proposals reach the record unfiltered",
+    "llm_values_in_record": 15,
+    "llm_values_published": 5,
+    "precision_of_ungated_llm_values": 0.3333,
+    "precision_of_ungated_published": 0.8,
+    "values_for_attributes_the_part_does_not_have": 8,
+    "examples": [
+      {
+        "mpn": "FKC43 1,5/20-V-06",
+        "key": "contact_material",
+        "value": "stainless_steel",
+        "unit": null,
+        "label": "brass",
+        "correct": false,
+        "resolution": "abstained",
+        "had_label": true
+      },
+      {
+        "mpn": "FKC43 1,5/20-V-06",
+        "key": "termination",
+        "value": "screw",
+        "unit": null,
+        "label": "crimp",
+        "correct": false,
+        "resolution": "abstained",
+        "had_label": true
+      },
+      {
+        "mpn": "T250-TH239",
+        "key": "nominal_size_secondary",
+        "value": 2.5,
+        "unit": "in",
+        "label": null,
+        "correct": false,
+        "resolution": "published",
+        "had_label": false
+      },
+      {
+        "mpn": "WM238-T038",
+        "key": "nominal_size_secondary",
+        "value": 3,
+        "unit": "in",
+        "label": null,
+        "correct": false,
+        "resolution": "abstained",
+        "had_label": false
+      },
+      {
+        "mpn": "WM238-T038",
+        "key": "bend_angle",
+        "value": 0,
+        "unit": null,
+        "label": null,
+        "correct": false,
+        "resolution": "abstained",
+        "had_label": false
+      },
+      {
+        "mpn": "WM238-T038",
+        "key": "thread_standard",
+        "value": "none",
+        "unit": null,
+        "label": null,
+        "correct": false,
+        "resolution": "abstained",
+        "had_label": false
+      },
+      {
+        "mpn": "WM238-T038",
+        "key": "wall_schedule",
+        "value": "schedule_160",
+        "unit": null,
+        "label": null,
+        "correct": false,
+        "resolution": "abstained",
+        "had_label": false
+      },
+      {
+        "mpn": "032025075X",
+        "key": "nominal_size_secondary",
+        "value": 1,
+        "unit": "in",
+        "label": null,
+        "correct": false,
+        "resolution": "abstained",
+        "had_label": false
+      }
+    ]
+  },
+  "cost": {
+    "llm_calls": 72,
+    "llm_prompt_tokens": 137926,
+    "llm_completion_tokens": 11943,
+    "llm_cached_tokens": 0,
+    "llm_seconds": 816.106,
+    "llm_retries": 1,
+    "llm_failures": 0,
+    "llm_unparsed_responses": 42,
+    "wall_seconds": 1361.4,
+    "seconds_per_sku": 34.03,
+    "prompt_tokens_per_sku": 3448.2
+  },
+  "detail": [
+    {
+      "mpn": "173403505-10VG",
+      "category": "electrical_connector",
+      "key": "rohs_compliant",
+      "value": true,
+      "unit": null,
+      "label": true,
+      "correct": true,
+      "resolution": "published",
+      "confidence": 0.9815,
+      "tier": "llm",
+      "span": "All parts in this series are RoHS compliant.",
+      "chunk_id": "fam005_ds:p1:l4"
+    },
+    {
+      "mpn": "SPT23 1,5/2-R-01",
+      "category": "electrical_connector",
+      "key": "rohs_compliant",
+      "value": true,
+      "unit": null,
+      "label": true,
+      "correct": true,
+      "resolution": "published",
+      "confidence": 0.9814,
+      "tier": "llm",
+      "span": "All parts in this series are RoHS compliant.",
+      "chunk_id": "fam023_ds:p1:l4"
+    },
+    {
+      "mpn": "G88104-08TV",
+      "category": "electrical_connector",
+      "key": "rohs_compliant",
+      "value": true,
+      "unit": "none",
+      "label": true,
+      "correct": true,
+      "resolution": "published",
+      "confidence": 0.9815,
+      "tier": "llm",
+      "span": "All parts in this series are RoHS compliant.",
+      "chunk_id": "fam004_ds:p1:l4"
+    },
+    {
+      "mpn": "T250-TH239",
+      "category": "pipe_fitting",
+      "key": "nominal_size_secondary",
+      "value": 2.5,
+      "unit": "in",
+      "label": null,
+      "correct": null,
+      "resolution": "published",
+      "confidence": 0.9895,
+      "tier": "llm",
+      "span": "2-1/2 in",
+      "chunk_id": "T250TH239_pg0:f0"
+    },
+    {
+      "mpn": "031020050A",
+      "category": "pipe_fitting",
+      "key": "nominal_size_secondary",
+      "value": 0.5,
+      "unit": "in",
+      "label": null,
+      "correct": null,
+      "resolution": "published",
+      "confidence": 0.9974,
+      "tier": "llm",
+      "span": "Size: 1/2 in | Size 2: \u2014",
+      "chunk_id": "fit020_cat:p1:t1:r2"
+    }
+  ],
+  "ungated_detail": [
+    {
+      "mpn": "FKC43 1,5/20-V-06",
+      "key": "contact_material",
+      "value": "stainless_steel",
+      "unit": null,
+      "label": "brass",
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": true
+    },
+    {
+      "mpn": "FKC43 1,5/20-V-06",
+      "key": "termination",
+      "value": "screw",
+      "unit": null,
+      "label": "crimp",
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": true
+    },
+    {
+      "mpn": "173403505-10VG",
+      "key": "rohs_compliant",
+      "value": true,
+      "unit": null,
+      "label": true,
+      "correct": true,
+      "resolution": "published",
+      "had_label": true
+    },
+    {
+      "mpn": "B4B-VH37-A-GR",
+      "key": "rohs_compliant",
+      "value": false,
+      "unit": null,
+      "label": false,
+      "correct": true,
+      "resolution": "abstained",
+      "had_label": true
+    },
+    {
+      "mpn": "SPT23 1,5/2-R-01",
+      "key": "rohs_compliant",
+      "value": true,
+      "unit": null,
+      "label": true,
+      "correct": true,
+      "resolution": "published",
+      "had_label": true
+    },
+    {
+      "mpn": "G88104-08TV",
+      "key": "rohs_compliant",
+      "value": true,
+      "unit": "none",
+      "label": true,
+      "correct": true,
+      "resolution": "published",
+      "had_label": true
+    },
+    {
+      "mpn": "G88129-04TR",
+      "key": "rohs_compliant",
+      "value": true,
+      "unit": null,
+      "label": true,
+      "correct": true,
+      "resolution": "published",
+      "had_label": true
+    },
+    {
+      "mpn": "T250-TH239",
+      "key": "nominal_size_secondary",
+      "value": 2.5,
+      "unit": "in",
+      "label": null,
+      "correct": false,
+      "resolution": "published",
+      "had_label": false
+    },
+    {
+      "mpn": "WM238-T038",
+      "key": "nominal_size_secondary",
+      "value": 3,
+      "unit": "in",
+      "label": null,
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": false
+    },
+    {
+      "mpn": "WM238-T038",
+      "key": "bend_angle",
+      "value": 0,
+      "unit": null,
+      "label": null,
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": false
+    },
+    {
+      "mpn": "WM238-T038",
+      "key": "thread_standard",
+      "value": "none",
+      "unit": null,
+      "label": null,
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": false
+    },
+    {
+      "mpn": "WM238-T038",
+      "key": "wall_schedule",
+      "value": "schedule_160",
+      "unit": null,
+      "label": null,
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": false
+    },
+    {
+      "mpn": "032025075X",
+      "key": "nominal_size_secondary",
+      "value": 1,
+      "unit": "in",
+      "label": null,
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": false
+    },
+    {
+      "mpn": "312811-400X",
+      "key": "thread_standard",
+      "value": "none",
+      "unit": null,
+      "label": null,
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": false
+    },
+    {
+      "mpn": "312811-400X",
+      "key": "wall_schedule",
+      "value": "schedule_160",
+      "unit": null,
+      "label": null,
+      "correct": false,
+      "resolution": "abstained",
+      "had_label": false
+    }
+  ]
+}

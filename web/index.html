@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sourced — Product Intelligence</title>
+<link rel="stylesheet" href="/app.css">
+</head>
+<body>
+<header>
+  <div class="brand">
+    <strong>Sourced</strong>
+    <span class="sub">product intelligence for industrial commerce</span>
+  </div>
+  <div class="head-actions">
+    <input id="filter" type="search" placeholder="Filter by MPN or manufacturer">
+    <span id="health" class="pill"></span>
+  </div>
+</header>
+
+<main>
+  <aside id="list-pane">
+    <div class="pane-head">
+      <span id="list-count">loading…</span>
+      <select id="status-filter">
+        <option value="">all records</option>
+        <option value="verified">source verified</option>
+        <option value="not_located">no source located</option>
+      </select>
+    </div>
+    <ul id="product-list"></ul>
+  </aside>
+
+  <section id="detail-pane">
+    <div id="empty" class="empty">Select a SKU to see its record, its provenance, and the reasons behind every abstention.</div>
+    <article id="detail" hidden></article>
+  </section>
+
+  <aside id="source-pane">
+    <div class="pane-head"><span>Source</span></div>
+    <div id="source-body" class="empty small">Click any value to see the document, page and region it was read from.</div>
+  </aside>
+</main>
+
+<script src="/app.js"></script>
+</body>
+</html>

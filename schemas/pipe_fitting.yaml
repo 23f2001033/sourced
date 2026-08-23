@@ -1,0 +1,199 @@
+category: pipe_fitting
+label: Pipe Fitting — Threaded and Socket
+taxonomy_codes:
+  unspsc: "40141600"
+
+title_template: "{manufacturer} {nominal_size} {body_material} {form_factor}, {end_connection_1} x {end_connection_2}, {pressure_class}"
+
+# The vertical doc 05 calls the richest abbreviation soup:
+#   1/2IN X 3/4IN BRS 90 ELL FIP 150#
+# Every attribute below is recoverable from that fragment by the rules tier
+# alone, which is the point of carrying a second category at all.
+attributes:
+  - key: nominal_size
+    type: quantity
+    dimension: length
+    canonical_unit: inch
+    plausible_range: [0.03, 48]
+    criticality: functional
+    required: true
+    aliases: ["size", "nominal size", "nominal pipe size", "nps", "size 1",
+              "end 1 size", "pipe size", "dn"]
+
+  - key: nominal_size_secondary
+    type: quantity
+    dimension: length
+    canonical_unit: inch
+    plausible_range: [0.03, 48]
+    criticality: functional
+    required: false
+    aliases: ["size 2", "end 2 size", "reducing size", "branch size",
+              "outlet size", "secondary size"]
+
+  - key: form_factor
+    type: enum
+    values: [elbow, tee, coupling, union, nipple, cap, plug, bushing, cross,
+             adapter, reducer]
+    criticality: functional
+    required: true
+    aliases: ["form", "fitting type", "type", "configuration", "style"]
+
+  - key: bend_angle
+    type: quantity
+    dimension: dimensionless
+    canonical_unit: null
+    plausible_range: [0, 180]
+    criticality: functional
+    required: false
+    aliases: ["angle", "bend angle", "degrees", "elbow angle"]
+
+  - key: end_connection_1
+    type: enum
+    values: [female_iron_pipe, male_iron_pipe, sweat, compression, flare, barb,
+             socket_weld, butt_weld, flanged, push_fit]
+    criticality: functional
+    required: true
+    aliases: ["end 1", "end connection 1", "connection 1", "inlet connection",
+              "end a", "run end"]
+
+  - key: end_connection_2
+    type: enum
+    values: [female_iron_pipe, male_iron_pipe, sweat, compression, flare, barb,
+             socket_weld, butt_weld, flanged, push_fit]
+    criticality: functional
+    required: true
+    aliases: ["end 2", "end connection 2", "connection 2", "outlet connection",
+              "end b", "branch end"]
+
+  - key: body_material
+    type: enum
+    values: [brass, bronze, copper, stainless_steel_304, stainless_steel_316,
+             carbon_steel, malleable_iron, ductile_iron, pvc, cpvc, pex]
+    criticality: functional
+    required: true
+    aliases: ["material", "body material", "material of construction", "body"]
+
+  - key: pressure_class
+    type: enum
+    values: [class_125, class_150, class_200, class_300, class_600, class_1000,
+             class_2000, class_3000]
+    criticality: safety
+    required: true
+    aliases: ["class", "pressure class", "rating class", "pound rating",
+              "psi class"]
+
+  - key: max_working_pressure
+    type: quantity
+    dimension: "[pressure]"
+    canonical_unit: psi
+    plausible_range: [5, 10000]
+    criticality: safety
+    required: true
+    aliases: ["max working pressure", "maximum working pressure", "wog",
+              "working pressure", "cold working pressure", "mwp"]
+
+  - key: temperature_rating_max
+    type: quantity
+    dimension: temperature
+    canonical_unit: degF
+    plausible_range: [-100, 1500]
+    criticality: safety
+    required: true
+    aliases: ["max temperature", "maximum temperature", "temperature rating",
+              "max operating temperature", "temp rating"]
+
+  - key: thread_standard
+    type: enum
+    values: [npt, nptf, bspt, bspp, none]
+    criticality: functional
+    required: false
+    aliases: ["thread", "thread standard", "thread type", "threads"]
+
+  - key: wall_schedule
+    type: enum
+    values: [schedule_10, schedule_40, schedule_80, schedule_160]
+    criticality: functional
+    required: false
+    aliases: ["schedule", "wall schedule", "wall thickness schedule", "sch"]
+
+  - key: lead_free_compliant
+    type: bool
+    criticality: safety
+    required: true
+    aliases: ["lead free", "lead-free", "lead free compliant", "nsf 372",
+              "potable water"]
+
+  - key: finish
+    type: enum
+    values: [natural, chrome_plated, galvanized, black_oxide, polished]
+    criticality: cosmetic
+    required: false
+    aliases: ["finish", "surface finish", "plating", "coating"]
+
+# Values derived from an attribute via a table, made available to the
+# relational rules by name (doc 03 4, which anticipates a `lookup:` form).
+# A pressure class is a designation, not a pressure: class 150 brass is
+# commonly rated 300 psi cold working. The ceiling is what the class permits.
+lookups:
+  class_ceiling:
+    from: pressure_class
+    table:
+      class_125: 200
+      class_150: 300
+      class_200: 400
+      class_300: 600
+      class_600: 1200
+      class_1000: 1000
+      class_2000: 2000
+      class_3000: 3000
+
+relational_rules:
+  # A fitting may not be sold above the pressure its class permits.
+  - id: pressure_within_class
+    expr: "max_working_pressure <= class_ceiling"
+    severity: error
+    message: "Working pressure {max_working_pressure} psi exceeds what the class permits"
+
+  # A threaded end has to declare a thread standard.
+  - id: threaded_end_declares_standard
+    when: "end_connection_1 in ['female_iron_pipe', 'male_iron_pipe']"
+    expr: "thread_standard != 'none'"
+    severity: warn
+    message: "A {end_connection_1} end is threaded but no thread standard is stated"
+
+  # Only an elbow has a bend angle.
+  - id: angle_belongs_to_an_elbow
+    when: "bend_angle > 0"
+    expr: "form_factor == 'elbow'"
+    severity: warn
+    message: "A {bend_angle} degree bend is stated on a {form_factor}"
+
+  # Plastics cannot carry steel pressure classes.
+  - id: plastic_pressure_ceiling
+    when: "body_material in ['pvc', 'cpvc', 'pex']"
+    expr: "max_working_pressure <= 400"
+    severity: error
+    message: "{max_working_pressure} psi is not achievable in {body_material}"
+
+  # Plastics soften long before steel does.
+  - id: plastic_temperature_ceiling
+    when: "body_material in ['pvc', 'cpvc', 'pex']"
+    expr: "temperature_rating_max <= 210"
+    severity: error
+    message: "{temperature_rating_max} degF is above what {body_material} tolerates"
+
+  # A reducing fitting is the only one with two different sizes.
+  - id: reducing_sizes_differ
+    when: "form_factor in ['reducer', 'bushing']"
+    expr: "nominal_size != nominal_size_secondary"
+    severity: warn
+    message: "A {form_factor} is stated with the same size on both ends"
+
+merchandising_required:
+  - nominal_size
+  - form_factor
+  - end_connection_1
+  - end_connection_2
+  - body_material
+  - pressure_class
+  - max_working_pressure

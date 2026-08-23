@@ -1,0 +1,165 @@
+category: electrical_connector
+label: Electrical Connector — Board-to-Wire Header
+taxonomy_codes:
+  unspsc: "39121400"
+
+title_template: "{manufacturer} {series} {pole_count}-Position {orientation} Connector Header, {pitch}mm Pitch, {contact_plating} Plated"
+
+attributes:
+  - key: pole_count
+    type: quantity
+    dimension: dimensionless
+    canonical_unit: null
+    plausible_range: [1, 200]
+    criticality: functional
+    required: true
+    aliases: ["positions", "no. of positions", "poles", "pos", "circuits"]
+
+  - key: pitch
+    type: quantity
+    dimension: length
+    canonical_unit: mm
+    plausible_range: [0.3, 30]
+    criticality: functional
+    required: true
+    aliases: ["pitch", "contact spacing", "centerline spacing"]
+
+  - key: current_rating
+    type: quantity
+    dimension: current
+    canonical_unit: A
+    plausible_range: [0.01, 1000]
+    criticality: safety
+    required: true
+    aliases: ["current rating", "rated current", "current (max)", "max current"]
+
+  - key: voltage_rating
+    type: quantity
+    dimension: "[electric_potential]"
+    canonical_unit: V
+    plausible_range: [1, 5000]
+    criticality: safety
+    required: true
+    aliases: ["voltage rating", "rated voltage", "working voltage", "nominal u"]
+
+  - key: flammability_rating
+    type: enum
+    values: [ul94_v0, ul94_v1, ul94_hb]
+    criticality: safety
+    required: true
+    aliases: ["flammability", "flammability rating", "ul rating"]
+
+  - key: operating_temp_min
+    type: quantity
+    dimension: temperature
+    canonical_unit: degC
+    plausible_range: [-273, 500]
+    criticality: functional
+    required: true
+    aliases: ["operating temperature min", "min operating temperature"]
+
+  - key: operating_temp_max
+    type: quantity
+    dimension: temperature
+    canonical_unit: degC
+    plausible_range: [-273, 500]
+    criticality: functional
+    required: true
+    aliases: ["operating temperature max", "max operating temperature"]
+
+  - key: contact_material
+    type: enum
+    values: [brass, phosphor_bronze, beryllium_copper, stainless_steel]
+    criticality: functional
+    required: true
+    aliases: ["contact material", "contact base material"]
+
+  - key: contact_plating
+    type: enum
+    values: [gold, tin, tin_lead, silver]
+    criticality: functional
+    required: true
+    aliases: ["contact plating", "plating", "contact finish"]
+
+  - key: housing_material
+    type: enum
+    values: [nylon_66, pbt, lcp, pa6t]
+    criticality: functional
+    required: true
+    aliases: ["housing material", "insulator material", "body material"]
+
+  - key: mounting_type
+    type: enum
+    values: [through_hole, surface_mount, panel_mount, cable_mount]
+    criticality: functional
+    required: true
+    aliases: ["mounting type", "mounting", "termination style"]
+
+  - key: orientation
+    type: enum
+    values: [vertical, right_angle]
+    criticality: functional
+    required: true
+    aliases: ["orientation", "angle", "configuration"]
+
+  - key: termination
+    type: enum
+    values: [solder, crimp, idc, screw]
+    criticality: functional
+    required: true
+    aliases: ["termination", "termination method", "wire termination"]
+
+  - key: contact_resistance
+    type: quantity
+    dimension: "[resistance]"
+    canonical_unit: milliohm
+    plausible_range: [0.1, 500]
+    criticality: functional
+    required: false
+    aliases: ["contact resistance", "low level contact resistance"]
+
+  - key: housing_colour
+    type: enum
+    values: [black, grey, white, natural]
+    criticality: cosmetic
+    required: false
+    aliases: ["colour", "color", "housing colour", "housing color"]
+
+  - key: rohs_compliant
+    type: bool
+    criticality: cosmetic
+    required: false
+    aliases: ["rohs", "rohs compliant", "rohs status"]
+
+relational_rules:
+  - id: temp_range_ordered
+    expr: "operating_temp_min < operating_temp_max"
+    severity: error
+    message: "Minimum operating temperature is not below maximum"
+
+  - id: current_pitch_plausible
+    when: "current_rating > 10"
+    expr: "pitch >= 2.0"
+    severity: warn
+    message: "Current rating {current_rating}A on a {pitch}mm pitch is implausibly dense"
+
+  - id: plating_material_consistent
+    when: "contact_plating == 'gold'"
+    expr: "contact_material in ['phosphor_bronze', 'beryllium_copper']"
+    severity: warn
+    message: "Gold plating is not normally applied over {contact_material}"
+
+  - id: voltage_pitch_plausible
+    when: "voltage_rating > 300"
+    expr: "pitch >= 3.0"
+    severity: warn
+    message: "{voltage_rating}V rating requires more creepage than a {pitch}mm pitch allows"
+
+merchandising_required:
+  - pole_count
+  - pitch
+  - current_rating
+  - voltage_rating
+  - orientation
+  - mounting_type
+  - contact_plating

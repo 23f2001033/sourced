@@ -1,0 +1,550 @@
+# Internal taxonomy (doc 02 CategoryAssignment.taxonomy == "internal").
+#
+# UNSPSC commodity codes and ETIM class definitions are published standards
+# whose tables require a licensed or registered download (doc 05). Rather than
+# invent codes that look official, this file carries an internal taxonomy with
+# real definitions, and `sourced/taxonomy/index.py` will import a genuine
+# UNSPSC or ETIM table if one is placed in data/. The classification mechanism
+# — embed leaves offline, retrieve top-k, constrain the choice to that set,
+# hard-validate the returned code — is identical either way (ADR-008).
+#
+# `maps_to_category` links a leaf to the attribute schema it selects.
+
+taxonomy: internal
+leaves:
+  - code: EC-CONN-BTW-HDR
+    title: Board-to-wire connector header
+    path: [Electronic components, Connectors, Board-to-wire, Header]
+    maps_to_category: electrical_connector
+    definition: >
+      Pin header mounted on a printed circuit board that mates with a discrete
+      wire housing. Characterised by pitch, position count, orientation,
+      contact plating and current rating per contact.
+
+  - code: EC-CONN-BTW-HSG
+    title: Board-to-wire connector housing
+    path: [Electronic components, Connectors, Board-to-wire, Housing]
+    maps_to_category: electrical_connector
+    definition: >
+      Moulded receptacle housing that accepts crimped contacts on discrete wire
+      and mates with a board-mounted header.
+
+  - code: EC-CONN-BTB-HDR
+    title: Board-to-board connector header
+    path: [Electronic components, Connectors, Board-to-board, Header]
+    maps_to_category: electrical_connector
+    definition: >
+      Connector joining two printed circuit boards in a stacking or mezzanine
+      arrangement, without intervening wire.
+
+  - code: EC-CONN-TERMBLK
+    title: Terminal block, pluggable
+    path: [Electronic components, Connectors, Terminal blocks, Pluggable]
+    maps_to_category: electrical_connector
+    definition: >
+      Screw or spring-clamp terminal block, board mounted, accepting field
+      wiring. Typically higher voltage and larger pitch than a wire-to-board
+      header.
+
+  - code: EC-CONN-TERMBLK-FIX
+    title: Terminal block, fixed
+    path: [Electronic components, Connectors, Terminal blocks, Fixed]
+    maps_to_category: electrical_connector
+    definition: >
+      Non-pluggable terminal block permanently soldered to the board, with
+      screw or cage-clamp wire entry.
+
+  - code: EC-CONN-CIRC
+    title: Circular connector
+    path: [Electronic components, Connectors, Circular]
+    maps_to_category: electrical_connector
+    definition: >
+      Cylindrical multi-pole connector with a threaded, bayonet or push-pull
+      coupling, commonly used for cable-to-panel interconnection.
+
+  - code: EC-CONN-DSUB
+    title: D-subminiature connector
+    path: [Electronic components, Connectors, Rectangular, D-sub]
+    maps_to_category: electrical_connector
+    definition: >
+      D-shaped shell connector in standard shell sizes, used for signal
+      interconnection between equipment.
+
+  - code: EC-CONN-RF
+    title: RF coaxial connector
+    path: [Electronic components, Connectors, RF and coaxial]
+    definition: >
+      Coaxial connector for radio-frequency signal transmission, characterised
+      by impedance, frequency range and coupling style.
+
+  - code: EC-CONN-FFC
+    title: FFC and FPC connector
+    path: [Electronic components, Connectors, Flat flexible]
+    maps_to_category: electrical_connector
+    definition: >
+      Connector accepting flat flexible cable or flexible printed circuit,
+      characterised by pitch, contact count and actuation mechanism.
+
+  - code: EC-CONN-IDC
+    title: IDC ribbon cable connector
+    path: [Electronic components, Connectors, Ribbon, IDC]
+    maps_to_category: electrical_connector
+    definition: >
+      Insulation-displacement connector terminated onto ribbon cable without
+      stripping, characterised by pitch and contact count.
+
+  - code: EC-CONN-CONTACT
+    title: Crimp contact
+    path: [Electronic components, Connectors, Accessories, Contacts]
+    definition: >
+      Individual crimp terminal inserted into a connector housing,
+      characterised by wire gauge range and plating.
+
+  - code: EC-CONN-BACKSHELL
+    title: Connector backshell and accessory
+    path: [Electronic components, Connectors, Accessories, Backshells]
+    definition: >
+      Mechanical accessory providing strain relief, shielding termination or
+      environmental sealing at a connector rear.
+
+  - code: EC-SW-TACT
+    title: Tactile switch
+    path: [Electromechanical, Switches, Tactile]
+    definition: >
+      Momentary push switch giving tactile feedback, board mounted,
+      characterised by actuation force and travel.
+
+  - code: EC-SW-TOGGLE
+    title: Toggle switch
+    path: [Electromechanical, Switches, Toggle]
+    definition: >
+      Lever-actuated switch with maintained positions, characterised by pole
+      and throw configuration and contact rating.
+
+  - code: EC-SW-DIP
+    title: DIP switch
+    path: [Electromechanical, Switches, DIP]
+    definition: >
+      Multi-position slide or rocker switch array in a dual-in-line package,
+      used for configuration settings.
+
+  - code: EC-RELAY-SIG
+    title: Signal relay
+    path: [Electromechanical, Relays, Signal]
+    definition: >
+      Electromechanical relay for low-current switching, characterised by coil
+      voltage, contact arrangement and contact rating.
+
+  - code: EC-RELAY-POWER
+    title: Power relay
+    path: [Electromechanical, Relays, Power]
+    definition: >
+      Electromechanical relay for load switching, characterised by coil
+      voltage and contact current and voltage ratings.
+
+  - code: EC-RES-SMD
+    title: Surface mount chip resistor
+    path: [Passive components, Resistors, Thick film chip]
+    definition: >
+      Fixed resistor in a rectangular chip package, characterised by
+      resistance, tolerance, power rating and case size.
+
+  - code: EC-RES-THRU
+    title: Through-hole fixed resistor
+    path: [Passive components, Resistors, Through hole]
+    definition: >
+      Axial or radial leaded fixed resistor, characterised by resistance,
+      tolerance and power rating.
+
+  - code: EC-RES-CURRSENSE
+    title: Current sense resistor
+    path: [Passive components, Resistors, Current sense]
+    definition: >
+      Low-value precision resistor intended for current measurement,
+      characterised by resistance, tolerance and temperature coefficient.
+
+  - code: EC-CAP-MLCC
+    title: Multilayer ceramic capacitor
+    path: [Passive components, Capacitors, Ceramic]
+    definition: >
+      Surface mount ceramic capacitor, characterised by capacitance, voltage
+      rating, dielectric class and case size.
+
+  - code: EC-CAP-ALEL
+    title: Aluminium electrolytic capacitor
+    path: [Passive components, Capacitors, Aluminium electrolytic]
+    definition: >
+      Polarised capacitor with an aluminium oxide dielectric, characterised by
+      capacitance, voltage rating, ripple current and lifetime.
+
+  - code: EC-CAP-FILM
+    title: Film capacitor
+    path: [Passive components, Capacitors, Film]
+    definition: >
+      Capacitor using a plastic film dielectric, characterised by capacitance,
+      voltage rating and dissipation factor.
+
+  - code: EC-IND-POWER
+    title: Power inductor
+    path: [Passive components, Inductors, Power]
+    definition: >
+      Wound magnetic component for energy storage in switching converters,
+      characterised by inductance, saturation current and DC resistance.
+
+  - code: EC-IND-FERRITE
+    title: Ferrite bead
+    path: [Passive components, Inductors, Ferrite beads]
+    definition: >
+      Lossy ferrite component used for high-frequency noise suppression,
+      characterised by impedance at a stated frequency and rated current.
+
+  - code: EC-XFMR-SIG
+    title: Signal transformer
+    path: [Passive components, Transformers, Signal]
+    definition: >
+      Transformer for signal isolation or impedance matching, characterised by
+      turns ratio, isolation voltage and bandwidth.
+
+  - code: EC-SEMI-MCU
+    title: Microcontroller
+    path: [Semiconductors, Integrated circuits, Microcontrollers]
+    definition: >
+      Programmable integrated circuit combining a processor core, memory and
+      peripherals in one package.
+
+  - code: EC-SEMI-OPAMP
+    title: Operational amplifier
+    path: [Semiconductors, Integrated circuits, Linear, Amplifiers]
+    definition: >
+      Analogue integrated circuit providing high-gain differential
+      amplification, characterised by offset, bandwidth and supply range.
+
+  - code: EC-SEMI-LDO
+    title: Linear voltage regulator
+    path: [Semiconductors, Integrated circuits, Power management, Linear]
+    definition: >
+      Integrated circuit producing a regulated output voltage with a linear
+      pass element, characterised by dropout voltage and output current.
+
+  - code: EC-SEMI-DCDC
+    title: Switching regulator
+    path: [Semiconductors, Integrated circuits, Power management, Switching]
+    definition: >
+      Integrated circuit regulating voltage by switching, characterised by
+      topology, input range, output current and switching frequency.
+
+  - code: EC-SEMI-MOSFET
+    title: Power MOSFET
+    path: [Semiconductors, Discrete, Transistors, MOSFET]
+    definition: >
+      Field-effect power transistor, characterised by drain-source voltage,
+      continuous drain current and on-resistance.
+
+  - code: EC-SEMI-BJT
+    title: Bipolar transistor
+    path: [Semiconductors, Discrete, Transistors, Bipolar]
+    definition: >
+      Current-controlled discrete transistor, characterised by collector
+      current, collector-emitter voltage and gain.
+
+  - code: EC-SEMI-DIODE
+    title: Rectifier diode
+    path: [Semiconductors, Discrete, Diodes, Rectifier]
+    definition: >
+      Discrete rectifying diode, characterised by reverse voltage, forward
+      current and forward voltage drop.
+
+  - code: EC-SEMI-TVS
+    title: TVS diode
+    path: [Semiconductors, Discrete, Diodes, Protection]
+    definition: >
+      Transient voltage suppressor for surge protection, characterised by
+      standoff voltage, clamping voltage and peak pulse power.
+
+  - code: EC-OPTO-LED
+    title: Indicator LED
+    path: [Optoelectronics, Emitters, Indicator LEDs]
+    definition: >
+      Light-emitting diode for indication, characterised by colour, forward
+      voltage, luminous intensity and viewing angle.
+
+  - code: EC-OPTO-COUPLER
+    title: Optocoupler
+    path: [Optoelectronics, Isolation, Optocouplers]
+    definition: >
+      Optically coupled isolator, characterised by isolation voltage, current
+      transfer ratio and output type.
+
+  - code: EC-OPTO-DISPLAY
+    title: Display module
+    path: [Optoelectronics, Displays, Modules]
+    definition: >
+      Assembled display module, characterised by technology, resolution,
+      interface and active area.
+
+  - code: EC-SENS-TEMP
+    title: Temperature sensor
+    path: [Sensors, Environmental, Temperature]
+    definition: >
+      Sensing element or integrated sensor reporting temperature,
+      characterised by range, accuracy and output type.
+
+  - code: EC-SENS-CURRENT
+    title: Current sensor
+    path: [Sensors, Electrical, Current]
+    definition: >
+      Sensor reporting current by Hall effect or shunt measurement,
+      characterised by measurement range, bandwidth and isolation.
+
+  - code: EC-SENS-PRESSURE
+    title: Pressure sensor
+    path: [Sensors, Environmental, Pressure]
+    definition: >
+      Sensor reporting fluid or gas pressure, characterised by range, port
+      style, accuracy and output.
+
+  - code: EC-CRYSTAL
+    title: Quartz crystal
+    path: [Frequency control, Crystals]
+    definition: >
+      Piezoelectric resonator setting an oscillator frequency, characterised by
+      frequency, load capacitance, tolerance and stability.
+
+  - code: EC-OSC
+    title: Crystal oscillator
+    path: [Frequency control, Oscillators]
+    definition: >
+      Packaged oscillator producing a clock output, characterised by frequency,
+      stability, supply voltage and output logic type.
+
+  - code: EC-FUSE
+    title: Fuse
+    path: [Circuit protection, Fuses]
+    definition: >
+      Single-operation overcurrent protection device, characterised by current
+      rating, voltage rating and breaking capacity.
+
+  - code: EC-PTC
+    title: Resettable fuse
+    path: [Circuit protection, Resettable]
+    definition: >
+      Polymeric positive temperature coefficient device providing resettable
+      overcurrent protection.
+
+  - code: EC-CB
+    title: Circuit breaker
+    path: [Circuit protection, Circuit breakers]
+    definition: >
+      Resettable mechanical overcurrent protection device, characterised by
+      current rating, trip curve and interrupting capacity.
+
+  - code: EC-PSU-ACDC
+    title: AC-DC power supply
+    path: [Power, Supplies, AC-DC]
+    definition: >
+      Assembled power supply converting mains AC to regulated DC,
+      characterised by input range, output voltage and output power.
+
+  - code: EC-PSU-DCDC
+    title: DC-DC converter module
+    path: [Power, Supplies, DC-DC modules]
+    definition: >
+      Encapsulated converter module, characterised by input range, output
+      voltage, output power and isolation.
+
+  - code: EC-BATT
+    title: Battery
+    path: [Power, Batteries, Cells]
+    definition: >
+      Primary or secondary electrochemical cell, characterised by chemistry,
+      nominal voltage, capacity and form factor.
+
+  - code: EC-BATT-HOLDER
+    title: Battery holder
+    path: [Power, Batteries, Holders]
+    definition: >
+      Mechanical retainer providing electrical contact to a battery cell,
+      characterised by cell size and mounting style.
+
+  - code: EC-CABLE-ASSY
+    title: Cable assembly
+    path: [Cables and wire, Assemblies]
+    definition: >
+      Pre-terminated cable with connectors fitted, characterised by connector
+      types at each end, conductor count and length.
+
+  - code: EC-CABLE-BULK
+    title: Bulk hook-up wire
+    path: [Cables and wire, Bulk wire]
+    definition: >
+      Single-conductor insulated wire supplied by length, characterised by
+      gauge, insulation material, voltage rating and temperature rating.
+
+  - code: EC-HEATSINK
+    title: Heat sink
+    path: [Thermal management, Heat sinks]
+    definition: >
+      Extruded or machined thermal dissipator, characterised by thermal
+      resistance, dimensions and attachment method.
+
+  - code: EC-FAN
+    title: Cooling fan
+    path: [Thermal management, Fans]
+    definition: >
+      Axial or blower fan for forced convection, characterised by frame size,
+      supply voltage, airflow and static pressure.
+
+  - code: EC-ENCL
+    title: Electronics enclosure
+    path: [Enclosures, General purpose]
+    definition: >
+      Housing for electronic assemblies, characterised by material, ingress
+      protection rating and internal dimensions.
+
+  - code: EC-HW-STANDOFF
+    title: Standoff and spacer
+    path: [Hardware, Board mounting]
+    definition: >
+      Threaded or unthreaded pillar setting the separation between a board and
+      a chassis, characterised by length, thread and material.
+
+  - code: EC-HW-SCREW
+    title: Machine screw
+    path: [Hardware, Fasteners]
+    definition: >
+      Threaded fastener, characterised by thread size, length, head style and
+      material.
+
+  - code: EC-TOOL-CRIMP
+    title: Crimp tool
+    path: [Tools, Termination]
+    definition: >
+      Hand or powered tool applying crimp contacts, characterised by the
+      contact series and wire range it supports.
+
+  - code: EC-TEST-PROBE
+    title: Test probe
+    path: [Test and measurement, Probes]
+    definition: >
+      Probe for electrical measurement or in-circuit test, characterised by
+      tip style, bandwidth and voltage rating.
+
+  # ---- pipe, valves and fittings -----------------------------------------
+  # A second populated category: the classifier now has to choose between two
+  # real attribute schemas rather than route everything to one.
+
+  - code: PVF-FIT-ELBOW
+    title: Pipe elbow fitting
+    path: [Pipe valves and fittings, Fittings, Elbow]
+    maps_to_category: pipe_fitting
+    definition: >
+      Fitting that changes the direction of a pipe run through a fixed angle,
+      characterised by nominal size, bend angle, end connections, body material
+      and pressure class.
+
+  - code: PVF-FIT-TEE
+    title: Pipe tee fitting
+    path: [Pipe valves and fittings, Fittings, Tee]
+    maps_to_category: pipe_fitting
+    definition: >
+      Three-way fitting joining a branch line to a run, characterised by run
+      and branch size, end connections, body material and pressure class.
+
+  - code: PVF-FIT-COUPLING
+    title: Pipe coupling
+    path: [Pipe valves and fittings, Fittings, Coupling]
+    maps_to_category: pipe_fitting
+    definition: >
+      Straight fitting joining two lengths of pipe of the same nominal size,
+      characterised by end connections, body material and pressure class.
+
+  - code: PVF-FIT-UNION
+    title: Pipe union
+    path: [Pipe valves and fittings, Fittings, Union]
+    maps_to_category: pipe_fitting
+    definition: >
+      Three-piece fitting allowing a pipe joint to be broken without cutting,
+      characterised by nominal size, seat type, body material and pressure class.
+
+  - code: PVF-FIT-NIPPLE
+    title: Pipe nipple
+    path: [Pipe valves and fittings, Fittings, Nipple]
+    maps_to_category: pipe_fitting
+    definition: >
+      Short length of pipe threaded at both ends, characterised by nominal
+      size, length, wall schedule and body material.
+
+  - code: PVF-FIT-REDUCER
+    title: Pipe reducer and bushing
+    path: [Pipe valves and fittings, Fittings, Reducer]
+    maps_to_category: pipe_fitting
+    definition: >
+      Fitting joining two different nominal sizes, characterised by both
+      sizes, end connections, body material and pressure class.
+
+  - code: PVF-FIT-CAP
+    title: Pipe cap and plug
+    path: [Pipe valves and fittings, Fittings, Cap and plug]
+    maps_to_category: pipe_fitting
+    definition: >
+      Fitting closing the end of a pipe or a threaded port, characterised by
+      nominal size, end connection, body material and pressure class.
+
+  - code: PVF-FIT-ADAPTER
+    title: Pipe adapter
+    path: [Pipe valves and fittings, Fittings, Adapter]
+    maps_to_category: pipe_fitting
+    definition: >
+      Fitting converting between two end connection styles, such as sweat to
+      threaded, characterised by both connections, size and pressure class.
+
+  - code: PVF-FIT-CROSS
+    title: Pipe cross fitting
+    path: [Pipe valves and fittings, Fittings, Cross]
+    maps_to_category: pipe_fitting
+    definition: >
+      Four-way fitting joining two intersecting pipe runs, characterised by
+      nominal size, end connections, body material and pressure class.
+
+  - code: PVF-VLV-BALL
+    title: Ball valve
+    path: [Pipe valves and fittings, Valves, Ball]
+    definition: >
+      Quarter-turn valve using a bored ball as the closure member,
+      characterised by size, port configuration, body material and pressure
+      rating.
+
+  - code: PVF-VLV-GATE
+    title: Gate valve
+    path: [Pipe valves and fittings, Valves, Gate]
+    definition: >
+      Multi-turn isolation valve using a sliding wedge, characterised by size,
+      body material, stem type and pressure class.
+
+  - code: PVF-VLV-CHECK
+    title: Check valve
+    path: [Pipe valves and fittings, Valves, Check]
+    definition: >
+      Valve permitting flow in one direction only, characterised by size,
+      body material, cracking pressure and pressure class.
+
+  - code: PVF-PIPE-TUBE
+    title: Pipe and tubing
+    path: [Pipe valves and fittings, Pipe, Tube]
+    definition: >
+      Bulk pipe or tubing supplied by length, characterised by nominal size,
+      wall schedule, material and pressure rating.
+
+  - code: PVF-SUPP-HANGER
+    title: Pipe hanger and support
+    path: [Pipe valves and fittings, Supports, Hangers]
+    definition: >
+      Mechanical support suspending or bracing a pipe run, characterised by
+      pipe size, load rating, material and finish.
+
+  - code: PVF-SEAL-GASKET
+    title: Flange gasket
+    path: [Pipe valves and fittings, Sealing, Gaskets]
+    definition: >
+      Compressible seal fitted between two flange faces, characterised by
+      nominal size, pressure class, material and thickness.

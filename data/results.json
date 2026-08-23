@@ -1,0 +1,2033 @@
+{
+  "dataset": {
+    "corpus_summary": {
+      "skus": 656,
+      "categories": [
+        "electrical_connector",
+        "pipe_fitting"
+      ],
+      "datasheets": 138,
+      "distributor_pages": 471,
+      "cohorts": {
+        "normal": 302,
+        "contradicted": 32,
+        "conflict": 46,
+        "distributor_only": 184,
+        "sibling_trap": 92
+      },
+      "splits": {
+        "dev": 252,
+        "calibration": 197,
+        "test": 207
+      },
+      "duplicate_mpns": 0,
+      "by_category": {
+        "electrical_connector": {
+          "skus": 373,
+          "cohorts": {
+            "normal": 171,
+            "contradicted": 18,
+            "conflict": 28,
+            "distributor_only": 104,
+            "sibling_trap": 52
+          },
+          "splits": {
+            "dev": 134,
+            "calibration": 120,
+            "test": 119
+          },
+          "label_keys": 16
+        },
+        "pipe_fitting": {
+          "skus": 283,
+          "cohorts": {
+            "normal": 131,
+            "contradicted": 14,
+            "conflict": 18,
+            "distributor_only": 80,
+            "sibling_trap": 40
+          },
+          "splits": {
+            "dev": 118,
+            "calibration": 77,
+            "test": 88
+          },
+          "label_keys": 14
+        }
+      }
+    },
+    "labels": {
+      "label_source": "synthetic_generator_ground_truth",
+      "audited_subset": 0,
+      "measured_noise_rate": 0.0,
+      "noise_is_by_construction": true
+    },
+    "splits": {
+      "dev": 252,
+      "calibration": 197,
+      "test": 207
+    },
+    "categories": [
+      "electrical_connector",
+      "pipe_fitting"
+    ],
+    "attributes_per_category": {
+      "electrical_connector": 16,
+      "pipe_fitting": 14
+    },
+    "taxonomy_leaves": 73,
+    "llm_tier_used_in_this_run": false,
+    "llm_provider_configured": true,
+    "llm_provider": "featherless",
+    "llm_model": "mistralai/Mistral-Nemo-Instruct-2407"
+  },
+  "calibration_fit": {
+    "rows_by_tier": {
+      "electrical_connector|functional": 1029,
+      "functional": 1417,
+      "electrical_connector|safety": 307,
+      "safety": 561,
+      "electrical_connector|cosmetic": 169,
+      "cosmetic": 234,
+      "pipe_fitting|functional": 388,
+      "pipe_fitting|safety": 254,
+      "pipe_fitting|cosmetic": 65
+    },
+    "base_rates": {
+      "electrical_connector|functional": 0.9825,
+      "functional": 0.9859,
+      "electrical_connector|safety": 0.9707,
+      "safety": 0.9822,
+      "electrical_connector|cosmetic": 0.9645,
+      "cosmetic": 0.9744,
+      "pipe_fitting|functional": 0.9948,
+      "pipe_fitting|safety": 0.9961,
+      "pipe_fitting|cosmetic": 1.0
+    },
+    "fitted_tiers": [
+      "cosmetic",
+      "electrical_connector|cosmetic",
+      "electrical_connector|functional",
+      "electrical_connector|safety",
+      "functional",
+      "pipe_fitting|functional",
+      "pipe_fitting|safety",
+      "safety"
+    ],
+    "coefficients": {
+      "cosmetic": {
+        "tier_rule": 0.0,
+        "tier_table": 0.003,
+        "tier_llm": 0.0,
+        "locator_table_cell": 0.6801,
+        "locator_structured_field": -0.6771,
+        "locator_inferred": 0.0,
+        "span_present": 0.003,
+        "unit_parsed": 0.003,
+        "enum_valid": 0.003,
+        "range_plausible": 0.003,
+        "relational_ok": 0.003,
+        "family_coherent": 0.003,
+        "agreement_count": 0.5645,
+        "source_authority": 0.5789,
+        "self_consistency": 0.003,
+        "match_confidence": 0.0717,
+        "degraded_path": 0.0,
+        "close_call": -0.6831
+      },
+      "electrical_connector|cosmetic": {
+        "tier_rule": 0.0,
+        "tier_table": -0.0008,
+        "tier_llm": 0.0,
+        "locator_table_cell": 0.6146,
+        "locator_structured_field": -0.6154,
+        "locator_inferred": 0.0,
+        "span_present": -0.0008,
+        "unit_parsed": -0.0008,
+        "enum_valid": -0.0008,
+        "range_plausible": -0.0008,
+        "relational_ok": -0.0008,
+        "family_coherent": -0.0008,
+        "agreement_count": 0.3385,
+        "source_authority": 0.5582,
+        "self_consistency": -0.0008,
+        "match_confidence": 0.097,
+        "degraded_path": 0.0,
+        "close_call": -0.6298
+      },
+      "electrical_connector|functional": {
+        "tier_rule": 0.3067,
+        "tier_table": -0.3115,
+        "tier_llm": 0.0,
+        "locator_table_cell": 1.2421,
+        "locator_structured_field": -1.5536,
+        "locator_inferred": 0.3067,
+        "span_present": -0.0048,
+        "unit_parsed": -0.0048,
+        "enum_valid": -0.0048,
+        "range_plausible": -0.0048,
+        "relational_ok": -0.0048,
+        "family_coherent": -0.0048,
+        "agreement_count": 2.3619,
+        "source_authority": 1.0521,
+        "self_consistency": -0.0048,
+        "match_confidence": 0.1391,
+        "degraded_path": 0.0,
+        "close_call": -1.4366
+      },
+      "electrical_connector|safety": {
+        "tier_rule": 0.0,
+        "tier_table": -0.0011,
+        "tier_llm": 0.0,
+        "locator_table_cell": 1.0319,
+        "locator_structured_field": -1.0331,
+        "locator_inferred": 0.0,
+        "span_present": -0.0011,
+        "unit_parsed": -0.0011,
+        "enum_valid": -0.0011,
+        "range_plausible": -0.0011,
+        "relational_ok": -0.0011,
+        "family_coherent": -0.0011,
+        "agreement_count": 0.6527,
+        "source_authority": 0.8681,
+        "self_consistency": -0.0011,
+        "match_confidence": 0.1485,
+        "degraded_path": 0.0,
+        "close_call": -0.5026
+      },
+      "functional": {
+        "tier_rule": 0.408,
+        "tier_table": -0.4116,
+        "tier_llm": 0.0,
+        "locator_table_cell": 1.1586,
+        "locator_structured_field": -1.5702,
+        "locator_inferred": 0.408,
+        "span_present": -0.0036,
+        "unit_parsed": -0.0036,
+        "enum_valid": -0.0036,
+        "range_plausible": -0.0036,
+        "relational_ok": -0.0036,
+        "family_coherent": -0.0036,
+        "agreement_count": 2.9393,
+        "source_authority": 1.0909,
+        "self_consistency": -0.0036,
+        "match_confidence": 0.2939,
+        "degraded_path": 0.0,
+        "close_call": -1.58
+      },
+      "pipe_fitting|functional": {
+        "tier_rule": 0.1276,
+        "tier_table": -0.1287,
+        "tier_llm": 0.0,
+        "locator_table_cell": 0.4779,
+        "locator_structured_field": -0.6066,
+        "locator_inferred": 0.1276,
+        "span_present": -0.001,
+        "unit_parsed": -0.001,
+        "enum_valid": -0.001,
+        "range_plausible": -0.001,
+        "relational_ok": -0.001,
+        "family_coherent": -0.001,
+        "agreement_count": 0.6949,
+        "source_authority": 0.4316,
+        "self_consistency": -0.001,
+        "match_confidence": 0.0753,
+        "degraded_path": 0.0,
+        "close_call": 0.0
+      },
+      "pipe_fitting|safety": {
+        "tier_rule": 0.0058,
+        "tier_table": -0.0047,
+        "tier_llm": 0.0,
+        "locator_table_cell": 0.3976,
+        "locator_structured_field": -0.4023,
+        "locator_inferred": 0.0058,
+        "span_present": 0.0011,
+        "unit_parsed": 0.0011,
+        "enum_valid": 0.0011,
+        "range_plausible": 0.0011,
+        "relational_ok": -0.0167,
+        "family_coherent": 0.0011,
+        "agreement_count": 0.2082,
+        "source_authority": 0.2925,
+        "self_consistency": 0.0011,
+        "match_confidence": 0.0147,
+        "degraded_path": 0.0,
+        "close_call": -0.934
+      },
+      "safety": {
+        "tier_rule": 0.0206,
+        "tier_table": -0.0211,
+        "tier_llm": 0.0,
+        "locator_table_cell": 1.0344,
+        "locator_structured_field": -1.0555,
+        "locator_inferred": 0.0206,
+        "span_present": -0.0005,
+        "unit_parsed": -0.0005,
+        "enum_valid": -0.0005,
+        "range_plausible": -0.0005,
+        "relational_ok": -0.0657,
+        "family_coherent": -0.0005,
+        "agreement_count": 0.9574,
+        "source_authority": 0.8542,
+        "self_consistency": -0.0005,
+        "match_confidence": 0.1776,
+        "degraded_path": 0.0,
+        "close_call": -1.0207
+      }
+    }
+  },
+  "by_category": {
+    "electrical_connector": {
+      "metrics": {
+        "structured_data_generation": {
+          "source_location_rate": 1.0,
+          "records_with_a_locatable_source": 100,
+          "wrong_part_traps": 19,
+          "wrong_part_traps_correctly_refused": 19,
+          "wrong_part_leak_rate": 0.0,
+          "attribute_coverage": 0.7414,
+          "coverage_from_fragment_alone": 0.6762,
+          "records_scored": 100,
+          "records_without_manufacturer": 15
+        },
+        "accuracy": {
+          "precision_published": 0.9937,
+          "published_values_scored": 1117,
+          "precision_by_criticality": {
+            "safety": {
+              "precision": 1.0,
+              "n": 95
+            },
+            "functional": {
+              "precision": 1.0,
+              "n": 868
+            },
+            "cosmetic": {
+              "precision": 0.9545,
+              "n": 154
+            }
+          },
+          "recall": 0.7799,
+          "error_taxonomy": {
+            "wrong_value": 7
+          }
+        },
+        "consistency": {
+          "unit_uniformity": 1.0,
+          "family_coherence_flags_per_1000": 0.0,
+          "coverage_variance_within_family": 0.2733,
+          "distinct_raw_keys_per_canonical_key": {
+            "contact_material": 3,
+            "contact_plating": 3,
+            "contact_resistance": 3,
+            "current_rating": 14,
+            "flammability_rating": 3
+          }
+        },
+        "validation_and_enrichment": {
+          "auto_publish_rate": 0.723,
+          "abstention_rate": 0.2201,
+          "abstention_reasons": {
+            "below_threshold": 214,
+            "not_in_source": 117,
+            "sources_conflict": 9
+          },
+          "false_abstention_rate": 0.5088,
+          "escalation_load_per_sku": 0.739,
+          "checks_failed_counts": {}
+        },
+        "scalable_engine": {
+          "skus_processed": 119,
+          "wall_seconds": 1.7,
+          "throughput_skus_per_min": 4196.1,
+          "llm_calls_total": 0.0,
+          "llm_calls_per_sku": 0.0,
+          "llm_avoidance_rate": 1.0,
+          "attributes_by_tier": {
+            "rule": 36.0,
+            "table": 1383.0,
+            "llm": 0.0
+          },
+          "span_rejections": 0.0
+        }
+      },
+      "calibration": {
+        "n": 1419,
+        "reliability": [
+          {
+            "bin": "0.6-0.7",
+            "n": 1,
+            "mean_confidence": 0.6901,
+            "observed_accuracy": 1.0
+          },
+          {
+            "bin": "0.7-0.8",
+            "n": 7,
+            "mean_confidence": 0.7039,
+            "observed_accuracy": 0.4286
+          },
+          {
+            "bin": "0.8-0.9",
+            "n": 17,
+            "mean_confidence": 0.8579,
+            "observed_accuracy": 0.7059
+          },
+          {
+            "bin": "0.9-1.0",
+            "n": 1394,
+            "mean_confidence": 0.979,
+            "observed_accuracy": 0.972
+          }
+        ],
+        "expected_calibration_error": 0.0103,
+        "ece_by_criticality": {
+          "functional": 0.0094,
+          "safety": 0.0227,
+          "cosmetic": 0.009
+        },
+        "abstention_curve": {
+          "functional": [
+            {
+              "threshold": 0.0,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.05,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.1,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.15,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.25,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.35,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.45,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.55,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.65,
+              "coverage": 1.0,
+              "precision": 0.9743,
+              "n": 974
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 0.999,
+              "precision": 0.9743,
+              "n": 973
+            },
+            {
+              "threshold": 0.75,
+              "coverage": 0.9918,
+              "precision": 0.9783,
+              "n": 966
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 0.9918,
+              "precision": 0.9783,
+              "n": 966
+            },
+            {
+              "threshold": 0.85,
+              "coverage": 0.9836,
+              "precision": 0.9781,
+              "n": 958
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 0.9836,
+              "precision": 0.9781,
+              "n": 958
+            },
+            {
+              "threshold": 0.95,
+              "coverage": 0.8912,
+              "precision": 1.0,
+              "n": 868
+            },
+            {
+              "threshold": 1.0,
+              "coverage": 0.0,
+              "precision": null,
+              "n": 0
+            }
+          ],
+          "safety": [
+            {
+              "threshold": 0.0,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.05,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.1,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.15,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.25,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.35,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.45,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.55,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.65,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.75,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.85,
+              "coverage": 1.0,
+              "precision": 0.945,
+              "n": 291
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 0.9691,
+              "precision": 0.961,
+              "n": 282
+            },
+            {
+              "threshold": 0.95,
+              "coverage": 0.6289,
+              "precision": 1.0,
+              "n": 183
+            },
+            {
+              "threshold": 1.0,
+              "coverage": 0.0,
+              "precision": null,
+              "n": 0
+            }
+          ],
+          "cosmetic": [
+            {
+              "threshold": 0.0,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.05,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.1,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.15,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.25,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.35,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.45,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.55,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.65,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.75,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.85,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 1.0,
+              "precision": 0.9545,
+              "n": 154
+            },
+            {
+              "threshold": 0.95,
+              "coverage": 0.5195,
+              "precision": 1.0,
+              "n": 80
+            },
+            {
+              "threshold": 1.0,
+              "coverage": 0.0,
+              "precision": null,
+              "n": 0
+            }
+          ]
+        }
+      }
+    },
+    "pipe_fitting": {
+      "metrics": {
+        "structured_data_generation": {
+          "source_location_rate": 1.0,
+          "records_with_a_locatable_source": 83,
+          "wrong_part_traps": 5,
+          "wrong_part_traps_correctly_refused": 5,
+          "wrong_part_leak_rate": 0.0,
+          "attribute_coverage": 0.9002,
+          "coverage_from_fragment_alone": 0.9405,
+          "records_scored": 83,
+          "records_without_manufacturer": 12
+        },
+        "accuracy": {
+          "precision_published": 0.9987,
+          "published_values_scored": 780,
+          "precision_by_criticality": {
+            "safety": {
+              "precision": 1.0,
+              "n": 191
+            },
+            "functional": {
+              "precision": 0.998,
+              "n": 506
+            },
+            "cosmetic": {
+              "precision": 1.0,
+              "n": 83
+            }
+          },
+          "recall": 0.9859,
+          "error_taxonomy": {
+            "wrong_value": 1
+          }
+        },
+        "consistency": {
+          "unit_uniformity": 1.0,
+          "family_coherence_flags_per_1000": 0.0,
+          "coverage_variance_within_family": 0.0,
+          "distinct_raw_keys_per_canonical_key": {
+            "bend_angle": 1,
+            "body_material": 9,
+            "end_connection_1": 8,
+            "end_connection_2": 8,
+            "finish": 5
+          }
+        },
+        "validation_and_enrichment": {
+          "auto_publish_rate": 0.8469,
+          "abstention_rate": 0.0141,
+          "abstention_reasons": {
+            "sources_conflict": 4,
+            "failed_validation": 5,
+            "below_threshold": 4
+          },
+          "false_abstention_rate": 0.6923,
+          "escalation_load_per_sku": 1.455,
+          "checks_failed_counts": {
+            "pressure_within_class": 5
+          }
+        },
+        "scalable_engine": {
+          "skus_processed": 88,
+          "wall_seconds": 1.11,
+          "throughput_skus_per_min": 4752.1,
+          "llm_calls_total": 0.0,
+          "llm_calls_per_sku": 0.0,
+          "llm_avoidance_rate": 1.0,
+          "attributes_by_tier": {
+            "rule": 44.0,
+            "table": 873.0,
+            "llm": 0.0
+          },
+          "span_rejections": 0.0
+        }
+      },
+      "calibration": {
+        "n": 917,
+        "reliability": [
+          {
+            "bin": "0.9-1.0",
+            "n": 917,
+            "mean_confidence": 0.9947,
+            "observed_accuracy": 0.9956
+          }
+        ],
+        "expected_calibration_error": 0.0009,
+        "ece_by_criticality": {
+          "functional": 0.0029,
+          "safety": 0.0054,
+          "cosmetic": 0.0142
+        },
+        "abstention_curve": {
+          "functional": [
+            {
+              "threshold": 0.0,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.05,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.1,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.15,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.25,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.35,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.45,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.55,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.65,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.75,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.85,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 0.95,
+              "coverage": 1.0,
+              "precision": 0.998,
+              "n": 506
+            },
+            {
+              "threshold": 1.0,
+              "coverage": 0.0,
+              "precision": null,
+              "n": 0
+            }
+          ],
+          "safety": [
+            {
+              "threshold": 0.0,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.05,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.1,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.15,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.25,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.35,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.45,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.55,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.65,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.75,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.85,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 0.95,
+              "coverage": 1.0,
+              "precision": 0.9909,
+              "n": 328
+            },
+            {
+              "threshold": 1.0,
+              "coverage": 0.0,
+              "precision": null,
+              "n": 0
+            }
+          ],
+          "cosmetic": [
+            {
+              "threshold": 0.0,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.05,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.1,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.15,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.2,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.25,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.3,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.35,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.4,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.45,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.5,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.55,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.6,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.65,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.7,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.75,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.8,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.85,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.9,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 0.95,
+              "coverage": 1.0,
+              "precision": 1.0,
+              "n": 83
+            },
+            {
+              "threshold": 1.0,
+              "coverage": 0.0,
+              "precision": null,
+              "n": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "test_metrics": {
+    "source_location": {
+      "source_location_rate": 1.0,
+      "records_with_a_locatable_source": 183,
+      "wrong_part_traps": 24,
+      "wrong_part_traps_correctly_refused": 24,
+      "wrong_part_leak_rate": 0.0
+    },
+    "accuracy": {
+      "precision_published": 0.9958,
+      "published_values_scored": 1897,
+      "precision_by_criticality": {
+        "safety": {
+          "precision": 1.0,
+          "n": 286
+        },
+        "functional": {
+          "precision": 0.9993,
+          "n": 1374
+        },
+        "cosmetic": {
+          "precision": 0.9705,
+          "n": 237
+        }
+      },
+      "recall": 0.8569,
+      "error_taxonomy": {
+        "wrong_value": 8
+      }
+    },
+    "validation_and_enrichment": {
+      "auto_publish_rate": 0.7693,
+      "abstention_rate": 0.1431,
+      "abstention_reasons": {
+        "below_threshold": 218,
+        "not_in_source": 117,
+        "sources_conflict": 13,
+        "failed_validation": 5
+      },
+      "false_abstention_rate": 0.5156,
+      "escalation_load_per_sku": 1.043,
+      "checks_failed_counts": {
+        "pressure_within_class": 5
+      }
+    },
+    "scalable_engine": {
+      "skus_processed": 207,
+      "wall_seconds": 2.81,
+      "throughput_skus_per_min": 4415.8,
+      "llm_calls_total": 0.0,
+      "llm_calls_per_sku": 0.0,
+      "llm_avoidance_rate": 1.0,
+      "attributes_by_tier": {
+        "rule": 80.0,
+        "table": 2256.0,
+        "llm": 0.0
+      },
+      "span_rejections": 0.0
+    }
+  },
+  "calibration": {
+    "n": 2336,
+    "reliability": [
+      {
+        "bin": "0.6-0.7",
+        "n": 1,
+        "mean_confidence": 0.6901,
+        "observed_accuracy": 1.0
+      },
+      {
+        "bin": "0.7-0.8",
+        "n": 7,
+        "mean_confidence": 0.7039,
+        "observed_accuracy": 0.4286
+      },
+      {
+        "bin": "0.8-0.9",
+        "n": 17,
+        "mean_confidence": 0.8579,
+        "observed_accuracy": 0.7059
+      },
+      {
+        "bin": "0.9-1.0",
+        "n": 2311,
+        "mean_confidence": 0.9853,
+        "observed_accuracy": 0.9814
+      }
+    ],
+    "expected_calibration_error": 0.0059,
+    "ece_by_criticality": {
+      "functional": 0.0052,
+      "safety": 0.0136,
+      "cosmetic": 0.0008
+    },
+    "abstention_curve": {
+      "functional": [
+        {
+          "threshold": 0.0,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.05,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.1,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.15,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.2,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.25,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.3,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.35,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.4,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.45,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.5,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.55,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.6,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.65,
+          "coverage": 1.0,
+          "precision": 0.9824,
+          "n": 1480
+        },
+        {
+          "threshold": 0.7,
+          "coverage": 0.9993,
+          "precision": 0.9824,
+          "n": 1479
+        },
+        {
+          "threshold": 0.75,
+          "coverage": 0.9946,
+          "precision": 0.9851,
+          "n": 1472
+        },
+        {
+          "threshold": 0.8,
+          "coverage": 0.9946,
+          "precision": 0.9851,
+          "n": 1472
+        },
+        {
+          "threshold": 0.85,
+          "coverage": 0.9892,
+          "precision": 0.985,
+          "n": 1464
+        },
+        {
+          "threshold": 0.9,
+          "coverage": 0.9892,
+          "precision": 0.985,
+          "n": 1464
+        },
+        {
+          "threshold": 0.95,
+          "coverage": 0.9284,
+          "precision": 0.9993,
+          "n": 1374
+        },
+        {
+          "threshold": 1.0,
+          "coverage": 0.0,
+          "precision": null,
+          "n": 0
+        }
+      ],
+      "safety": [
+        {
+          "threshold": 0.0,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.05,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.1,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.15,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.2,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.25,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.3,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.35,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.4,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.45,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.5,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.55,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.6,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.65,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.7,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.75,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.8,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.85,
+          "coverage": 1.0,
+          "precision": 0.9693,
+          "n": 619
+        },
+        {
+          "threshold": 0.9,
+          "coverage": 0.9855,
+          "precision": 0.977,
+          "n": 610
+        },
+        {
+          "threshold": 0.95,
+          "coverage": 0.8255,
+          "precision": 0.9941,
+          "n": 511
+        },
+        {
+          "threshold": 1.0,
+          "coverage": 0.0,
+          "precision": null,
+          "n": 0
+        }
+      ],
+      "cosmetic": [
+        {
+          "threshold": 0.0,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.05,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.1,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.15,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.2,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.25,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.3,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.35,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.4,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.45,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.5,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.55,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.6,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.65,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.7,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.75,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.8,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.85,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.9,
+          "coverage": 1.0,
+          "precision": 0.9705,
+          "n": 237
+        },
+        {
+          "threshold": 0.95,
+          "coverage": 0.6878,
+          "precision": 1.0,
+          "n": 163
+        },
+        {
+          "threshold": 1.0,
+          "coverage": 0.0,
+          "precision": null,
+          "n": 0
+        }
+      ]
+    }
+  },
+  "category_routing": {
+    "records": 207,
+    "schema_routing_accuracy": 1.0,
+    "records_with_a_category": 207,
+    "invented_codes": 0,
+    "confusion": {
+      "electrical_connector": {
+        "electrical_connector": 119
+      },
+      "pipe_fitting": {
+        "pipe_fitting": 88
+      }
+    }
+  },
+  "ablations_by_category": {
+    "electrical_connector": {
+      "full_system": {
+        "precision_published": 0.9937,
+        "auto_publish_rate": 0.723,
+        "attribute_coverage": 0.7414,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0103
+      },
+      "no_source_verification": {
+        "precision_published": 0.921,
+        "auto_publish_rate": 0.6688,
+        "attribute_coverage": 0.6903,
+        "wrong_part_leak_rate": 1.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.1129
+      },
+      "no_span_containment": {
+        "precision_published": 0.9937,
+        "auto_publish_rate": 0.723,
+        "attribute_coverage": 0.7414,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0103
+      },
+      "no_relational_validation_l2": {
+        "precision_published": 0.9937,
+        "auto_publish_rate": 0.723,
+        "attribute_coverage": 0.7414,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0103
+      },
+      "no_family_coherence_l3": {
+        "precision_published": 0.9937,
+        "auto_publish_rate": 0.723,
+        "attribute_coverage": 0.7414,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0103
+      },
+      "no_rules_tier": {
+        "precision_published": 0.9932,
+        "auto_publish_rate": 0.6673,
+        "attribute_coverage": 0.6186,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0081
+      },
+      "no_tables_tier": {
+        "precision_published": 1.0,
+        "auto_publish_rate": 0.2744,
+        "attribute_coverage": 0.6057,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.009
+      },
+      "uncalibrated_confidence": {
+        "precision_published": 1.0,
+        "auto_publish_rate": 0.5398,
+        "attribute_coverage": 0.54,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0412
+      },
+      "with_mpn_decoding": {
+        "precision_published": 0.9938,
+        "auto_publish_rate": 0.7256,
+        "attribute_coverage": 0.7414,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0104
+      }
+    },
+    "pipe_fitting": {
+      "full_system": {
+        "precision_published": 0.9987,
+        "auto_publish_rate": 0.8469,
+        "attribute_coverage": 0.9002,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0009
+      },
+      "no_source_verification": {
+        "precision_published": 0.9844,
+        "auto_publish_rate": 0.9181,
+        "attribute_coverage": 0.9058,
+        "wrong_part_leak_rate": 1.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.025
+      },
+      "no_span_containment": {
+        "precision_published": 0.9987,
+        "auto_publish_rate": 0.8469,
+        "attribute_coverage": 0.9002,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0009
+      },
+      "no_relational_validation_l2": {
+        "precision_published": 0.9987,
+        "auto_publish_rate": 0.8512,
+        "attribute_coverage": 0.9071,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0009
+      },
+      "no_family_coherence_l3": {
+        "precision_published": 0.9987,
+        "auto_publish_rate": 0.8469,
+        "attribute_coverage": 0.9002,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0009
+      },
+      "no_rules_tier": {
+        "precision_published": 0.9986,
+        "auto_publish_rate": 0.759,
+        "attribute_coverage": 0.7625,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0014
+      },
+      "no_tables_tier": {
+        "precision_published": 1.0,
+        "auto_publish_rate": 0.4908,
+        "attribute_coverage": 0.6059,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0066
+      },
+      "uncalibrated_confidence": {
+        "precision_published": 1.0,
+        "auto_publish_rate": 0.5407,
+        "attribute_coverage": 0.5181,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0758
+      },
+      "with_mpn_decoding": {
+        "precision_published": 0.9987,
+        "auto_publish_rate": 0.8469,
+        "attribute_coverage": 0.9002,
+        "wrong_part_leak_rate": 0.0,
+        "family_flags_per_1000": 0.0,
+        "expected_calibration_error": 0.0009
+      }
+    }
+  },
+  "ablation_category": "electrical_connector",
+  "ablations": {
+    "full_system": {
+      "precision_published": 0.9937,
+      "auto_publish_rate": 0.723,
+      "attribute_coverage": 0.7414,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.0103
+    },
+    "no_source_verification": {
+      "precision_published": 0.921,
+      "auto_publish_rate": 0.6688,
+      "attribute_coverage": 0.6903,
+      "wrong_part_leak_rate": 1.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.1129
+    },
+    "no_span_containment": {
+      "precision_published": 0.9937,
+      "auto_publish_rate": 0.723,
+      "attribute_coverage": 0.7414,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.0103
+    },
+    "no_relational_validation_l2": {
+      "precision_published": 0.9937,
+      "auto_publish_rate": 0.723,
+      "attribute_coverage": 0.7414,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.0103
+    },
+    "no_family_coherence_l3": {
+      "precision_published": 0.9937,
+      "auto_publish_rate": 0.723,
+      "attribute_coverage": 0.7414,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.0103
+    },
+    "no_rules_tier": {
+      "precision_published": 0.9932,
+      "auto_publish_rate": 0.6673,
+      "attribute_coverage": 0.6186,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.0081
+    },
+    "no_tables_tier": {
+      "precision_published": 1.0,
+      "auto_publish_rate": 0.2744,
+      "attribute_coverage": 0.6057,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.009
+    },
+    "uncalibrated_confidence": {
+      "precision_published": 1.0,
+      "auto_publish_rate": 0.5398,
+      "attribute_coverage": 0.54,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.0412
+    },
+    "with_mpn_decoding": {
+      "precision_published": 0.9938,
+      "auto_publish_rate": 0.7256,
+      "attribute_coverage": 0.7414,
+      "wrong_part_leak_rate": 0.0,
+      "family_flags_per_1000": 0.0,
+      "expected_calibration_error": 0.0104
+    }
+  },
+  "adversarial": {
+    "injected_fabrication": {
+      "corruptions_injected": 176,
+      "intercepted": 176,
+      "interception_rate": 1.0,
+      "caught_by_level": {
+        "attribute": 176,
+        "relational": 11,
+        "family": 41,
+        "threshold": 44
+      },
+      "caught_by_level_rate": {
+        "attribute": 1.0,
+        "relational": 0.0625,
+        "family": 0.233,
+        "threshold": 0.25
+      }
+    },
+    "degraded_input": {
+      "baseline": {
+        "source_location_rate": 1.0,
+        "published_values": 536,
+        "mean_confidence": 0.9955
+      },
+      "no_manufacturer": {
+        "source_location_rate": 1.0,
+        "published_values": 536,
+        "mean_confidence": 0.9955
+      },
+      "no_description": {
+        "source_location_rate": 1.0,
+        "published_values": 536,
+        "mean_confidence": 0.9951
+      },
+      "malformed_mpn": {
+        "source_location_rate": 1.0,
+        "published_values": 536,
+        "mean_confidence": 0.9955
+      },
+      "truncated_mpn": {
+        "source_location_rate": 0.0,
+        "published_values": 0,
+        "mean_confidence": null
+      }
+    }
+  },
+  "catalog_operations": {
+    "revised_source": "fam000_ds",
+    "products_linked": 5,
+    "products_reprocessed": 5,
+    "attributes_examined": 80,
+    "attributes_changed": 0,
+    "catalogue_attributes_in_a_full_run": 1104,
+    "reverification_cost_vs_full_run": 0.0725
+  }
+}

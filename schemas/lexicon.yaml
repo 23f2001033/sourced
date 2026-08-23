@@ -1,0 +1,208 @@
+# Abbreviation lexicon (doc 03 2.1).
+# Industrial descriptions are compressed: `1/2IN X 3/4IN BRS 90 ELL FIP 150#`.
+# Each entry maps an abbreviation to both a value and the attribute it fills.
+tokens:
+  VERT:   {value: vertical,        key: orientation}
+  VERTICAL: {value: vertical,      key: orientation}
+  "R/A":  {value: right_angle,     key: orientation}
+  RA:     {value: right_angle,     key: orientation}
+  RTANG:  {value: right_angle,     key: orientation}
+  HORZ:   {value: right_angle,     key: orientation}
+
+  SMD:    {value: surface_mount,   key: mounting_type}
+  SMT:    {value: surface_mount,   key: mounting_type}
+  TH:     {value: through_hole,    key: mounting_type}
+  THT:    {value: through_hole,    key: mounting_type}
+  PNL:    {value: panel_mount,     key: mounting_type}
+  PANEL:  {value: panel_mount,     key: mounting_type}
+
+  GOLD:   {value: gold,            key: contact_plating}
+  AU:     {value: gold,            key: contact_plating}
+  TIN:    {value: tin,             key: contact_plating}
+  SN:     {value: tin,             key: contact_plating}
+  "SN/PB": {value: tin_lead,       key: contact_plating}
+  SNPB:   {value: tin_lead,        key: contact_plating}
+  SILVER: {value: silver,          key: contact_plating}
+
+  # brass is a contact material on a connector and a body material on a
+  # fitting; the schema in play decides which reading applies
+  BRS:
+    - {value: brass, key: contact_material}
+    - {value: brass, key: body_material}
+  BRASS:
+    - {value: brass, key: contact_material}
+    - {value: brass, key: body_material}
+  PHBR:   {value: phosphor_bronze, key: contact_material}
+  BECU:   {value: beryllium_copper, key: contact_material}
+  SS:     {value: stainless_steel, key: contact_material}
+
+  BLK:    {value: black,           key: housing_colour}
+  BLACK:  {value: black,           key: housing_colour}
+  GRY:    {value: grey,            key: housing_colour}
+  WHT:    {value: white,           key: housing_colour}
+  NAT:    {value: natural,         key: housing_colour}
+
+  SLDR:   {value: solder,          key: termination}
+  IDC:    {value: idc,             key: termination}
+  CRIMP:  {value: crimp,           key: termination}
+  SCR:    {value: screw,           key: termination}
+
+  ROHS:   {value: true,            key: rohs_compliant}
+
+  # ---- pipe fittings (doc 00: `1/2IN X 3/4IN BRS 90 ELL FIP 150#`) ----
+  # The lexicon is shared across categories: an entry only fires when its
+  # attribute exists in the schema selected for the SKU, so `BRS` fills
+  # contact_material for a connector and body_material for a fitting.
+  ELL:    {value: elbow,      key: form_factor}
+  ELBOW:  {value: elbow,      key: form_factor}
+  TEE:    {value: tee,        key: form_factor}
+  CPLG:   {value: coupling,   key: form_factor}
+  COUP:   {value: coupling,   key: form_factor}
+  UN:     {value: union,      key: form_factor}
+  UNION:  {value: union,      key: form_factor}
+  NIP:    {value: nipple,     key: form_factor}
+  NIPPLE: {value: nipple,     key: form_factor}
+  CAP:    {value: cap,        key: form_factor}
+  PLUG:   {value: plug,       key: form_factor}
+  BUSH:   {value: bushing,    key: form_factor}
+  BUSHING: {value: bushing,   key: form_factor}
+  CROSS:  {value: cross,      key: form_factor}
+  ADPT:   {value: adapter,    key: form_factor}
+  ADAPTER: {value: adapter,   key: form_factor}
+  RED:    {value: reducer,    key: form_factor}
+  REDUCER: {value: reducer,   key: form_factor}
+
+  # end connections are ordered, so they are patterns, not tokens
+
+  SS304:  {value: stainless_steel_304, key: body_material}
+  SS316:  {value: stainless_steel_316, key: body_material}
+  CS:     {value: carbon_steel,        key: body_material}
+  MI:     {value: malleable_iron,      key: body_material}
+  MALL:   {value: malleable_iron,      key: body_material}
+  DI:     {value: ductile_iron,        key: body_material}
+  PVC:    {value: pvc,                 key: body_material}
+  CPVC:   {value: cpvc,                key: body_material}
+  PEX:    {value: pex,                 key: body_material}
+  BRZ:    {value: bronze,              key: body_material}
+  BRONZE: {value: bronze,              key: body_material}
+  CU:     {value: copper,              key: body_material}
+
+  NPT:    {value: npt,   key: thread_standard}
+  NPTF:   {value: nptf,  key: thread_standard}
+  BSPT:   {value: bspt,  key: thread_standard}
+  BSPP:   {value: bspp,  key: thread_standard}
+
+  SCH10:  {value: schedule_10,  key: wall_schedule}
+  SCH40:  {value: schedule_40,  key: wall_schedule}
+  SCH80:  {value: schedule_80,  key: wall_schedule}
+  SCH160: {value: schedule_160, key: wall_schedule}
+
+  CHR:    {value: chrome_plated, key: finish}
+  CHROME: {value: chrome_plated, key: finish}
+  GALV:   {value: galvanized,    key: finish}
+  BLKOX:  {value: black_oxide,   key: finish}
+  POL:    {value: polished,      key: finish}
+
+  LF:     {value: true, key: lead_free_compliant}
+  LEADFREE: {value: true, key: lead_free_compliant}
+
+# Regex producers. `key` names the attribute, `group` the capturing group that
+# holds the value, `unit` the unit to attach (null for a bare count).
+patterns:
+  - id: pole_count_pos
+    key: pole_count
+    regex: '(\d+)\s*(?:POS|POSITION|POSITIONS|P\b|PIN|PINS|CKT|WAY)'
+    group: 1
+    unit: null
+  - id: pitch_metric
+    key: pitch
+    regex: '(\d+(?:\.\d+)?)\s*MM'
+    group: 1
+    unit: mm
+  - id: pitch_imperial
+    key: pitch
+    regex: '(\d*\.\d+|\d+\s*/\s*\d+)\s*(?:IN\b|INCH|"|”|″)'
+    group: 1
+    unit: inch
+  - id: pressure_class_pound
+    key: pressure_class
+    regex: '(\d{2,4})\s*#'
+    group: 1
+    unit: null
+    format: "class_{value}"
+  - id: bend_angle_degrees
+    key: bend_angle
+    regex: '\b(45|90|22\.5|60|180)\s*(?:DEG|DEGREE|DEGREES|°)?\s*(?=ELL|ELBOW|\b)'
+    group: 1
+    unit: null
+  - id: nominal_size_first
+    key: nominal_size
+    regex: '((?:\d+\s*-\s*)?\d+\s*/\s*\d+|\d+(?:\.\d+)?)\s*(?:IN\b|INCH|"|”|″)'
+    group: 1
+    unit: inch
+  - id: nominal_size_second
+    key: nominal_size_secondary
+    regex: 'X\s*((?:\d+\s*-\s*)?\d+\s*/\s*\d+|\d+(?:\.\d+)?)\s*(?:IN\b|INCH|"|”|″)'
+    group: 1
+    unit: inch
+  - id: end_connection_first
+    key: end_connection_1
+    regex: '(?<![A-Z0-9])(FIP|FPT|FNPT|MIP|MPT|MNPT|SWT|SWEAT|CXC|COMP|FLARE|BARB|SW|BW|FLGD|FLG|PF)(?![A-Z0-9])'
+    group: 1
+    unit: null
+    map:
+      FIP: female_iron_pipe
+      FPT: female_iron_pipe
+      FNPT: female_iron_pipe
+      MIP: male_iron_pipe
+      MPT: male_iron_pipe
+      MNPT: male_iron_pipe
+      SWT: sweat
+      SWEAT: sweat
+      CXC: sweat
+      COMP: compression
+      FLARE: flare
+      BARB: barb
+      SW: socket_weld
+      BW: butt_weld
+      FLG: flanged
+      FLGD: flanged
+      PF: push_fit
+  - id: end_connection_second
+    key: end_connection_2
+    regex: 'X\s*(FIP|FPT|FNPT|MIP|MPT|MNPT|SWT|SWEAT|CXC|COMP|FLARE|BARB|SW|BW|FLGD|FLG|PF)(?![A-Z0-9])'
+    group: 1
+    unit: null
+    map:
+      FIP: female_iron_pipe
+      FPT: female_iron_pipe
+      FNPT: female_iron_pipe
+      MIP: male_iron_pipe
+      MPT: male_iron_pipe
+      MNPT: male_iron_pipe
+      SWT: sweat
+      SWEAT: sweat
+      CXC: sweat
+      COMP: compression
+      FLARE: flare
+      BARB: barb
+      SW: socket_weld
+      BW: butt_weld
+      FLG: flanged
+      FLGD: flanged
+      PF: push_fit
+  - id: working_pressure_psi
+    key: max_working_pressure
+    regex: '(\d+(?:\.\d+)?)\s*(?:PSI|WOG)\b'
+    group: 1
+    unit: psi
+  - id: current_amps
+    key: current_rating
+    regex: '(\d+(?:\.\d+)?)\s*A\b'
+    group: 1
+    unit: A
+  - id: voltage_volts
+    key: voltage_rating
+    regex: '(\d+(?:\.\d+)?)\s*V\b'
+    group: 1
+    unit: V

@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.pytest_cache/
+*.egg-info/
+
+# Generated corpus and store: rebuilt by `python -m sourced.corpus.generate`
+data/pdfs/
+data/pages/
+data/*.db
+data/corpus.jsonl
+data/sources.jsonl
+data/corpus_docs.pkl
+data/calibration.pkl
+data/*.log
+
+# Committed on purpose:
+#   data/demo.json   the demo fallback (risk R10) - useless if it is not in the repo
+#   data/results.json + docs/figures/  the measured run RESULTS.md cites
+#   data/llm_experiment.json           the extraction A/B RESULTS.md cites
+#   data/description_experiment.json   the R8 audit RESULTS.md cites

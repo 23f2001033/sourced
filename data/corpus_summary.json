@@ -1,0 +1,56 @@
+{
+  "skus": 656,
+  "categories": [
+    "electrical_connector",
+    "pipe_fitting"
+  ],
+  "datasheets": 138,
+  "distributor_pages": 471,
+  "cohorts": {
+    "normal": 302,
+    "contradicted": 32,
+    "conflict": 46,
+    "distributor_only": 184,
+    "sibling_trap": 92
+  },
+  "splits": {
+    "dev": 252,
+    "calibration": 197,
+    "test": 207
+  },
+  "duplicate_mpns": 0,
+  "by_category": {
+    "electrical_connector": {
+      "skus": 373,
+      "cohorts": {
+        "normal": 171,
+        "contradicted": 18,
+        "conflict": 28,
+        "distributor_only": 104,
+        "sibling_trap": 52
+      },
+      "splits": {
+        "dev": 134,
+        "calibration": 120,
+        "test": 119
+      },
+      "label_keys": 16
+    },
+    "pipe_fitting": {
+      "skus": 283,
+      "cohorts": {
+        "normal": 131,
+        "contradicted": 14,
+        "conflict": 18,
+        "distributor_only": 80,
+        "sibling_trap": 40
+      },
+      "splits": {
+        "dev": 118,
+        "calibration": 77,
+        "test": 88
+      },
+      "label_keys": 14
+    }
+  }
+}

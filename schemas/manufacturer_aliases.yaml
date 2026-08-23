@@ -1,0 +1,9 @@
+# Alias table for manufacturer resolution (doc 03 0.2).
+# Exact match on the normalised alias first; rapidfuzz only as a fallback,
+# with a hard floor below which nothing is resolved.
+TE Connectivity: [TE, TE CONN, "TE CONNECTIVITY", TYCO, "TYCO ELECTRONICS", AMP, "AMP INC"]
+Molex: [MOLEX, "MOLEX LLC", "MOLEX INC", "MOLEX CONNECTOR"]
+JST: [JST, "J.S.T.", "JST MFG", "JST SALES", "JAPAN SOLDERLESS TERMINALS"]
+Phoenix Contact: ["PHOENIX CONTACT", PHOENIX, "PHOENIX CONTACT GMBH", "PHOENIX CONT"]
+Amphenol: [AMPHENOL, "AMPHENOL ICC", "AMPHENOL FCI", FCI, "AMPHENOL CORP"]
+ABB: [ABB, "A.B.B.", "ASEA BROWN BOVERI", "ABB LTD", "ABB INC"]
