@@ -419,7 +419,7 @@ the whole system in six acts.
 
 ## Slide 14 — Links
 
-1. **GitHub public repository:** _(fill in — see the checklist in [DEMO_SCRIPT.md](DEMO_SCRIPT.md))_
+1. **GitHub public repository:** https://github.com/23f2001033/sourced
 2. **Demo video (3 min):** _(fill in)_
 3. **Working prototype:** `docker compose up` → http://localhost:8000 — or the deployed URL
 

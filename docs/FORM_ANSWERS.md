@@ -25,7 +25,7 @@ command, but this field wants a link. Two options:
 - **Point at the repo's run instructions** if a URL is not required to be live:
 
 ```
-https://github.com/<your-handle>/sourced#running-it
+https://github.com/23f2001033/sourced#running-it
 (one command: docker compose up  ->  http://localhost:8000)
 ```
 
@@ -37,15 +37,14 @@ option.
 ## 3. Share the GitHub Repository link
 
 ```
-
+https://github.com/23f2001033/sourced
 ```
 
-Before pasting, confirm:
+Live and public. Verified after pushing:
 
-- [ ] `.env` is **not** committed — it holds a live API key (`git status --short | grep .env`)
-- [ ] `docs/RESULTS.md`, `docs/figures/*.png` and the deck PDF are committed
-- [ ] The repository is **public** by the deadline (your own risk register keeps
-      it private until then)
+- [x] `.env` is **not** on the remote — the API key never left this machine
+- [x] `docs/RESULTS.md`, `docs/figures/*.png` and the deck PDF are all present
+- [x] Repository is **public**, default branch `main`
 
 ---
 
